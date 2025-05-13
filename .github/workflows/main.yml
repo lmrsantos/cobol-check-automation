@@ -26,4 +26,4 @@ jobs:
         ZOWE_HOST: ${{ secrets.ZOWE_HOST}}
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        .github/scripts/zowe_operations.sh
+        bash .github/scripts/zowe_operations.sh
