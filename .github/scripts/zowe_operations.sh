@@ -12,5 +12,5 @@ zowe zos-files create uss-directory "/z/$LOWERCASE_USERNAME/cobolcheck" --host $
 # Upload files
 zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar"  --host $ZOWE_HOST
 # Verify upload
-echo "Verifying upload:"
+echo "Verifying upload..."
 zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"
