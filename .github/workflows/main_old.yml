@@ -1,10 +1,13 @@
-name: COBOL Check Automation
-on:
+name: Cobol Check Automation
+
+on: 
   push:
     branches: [ main ]
+
 jobs:
   cobol-check:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up Java
@@ -12,10 +15,17 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
+    - name: Install Zowe CLI
+      run: |
+        npm install -g @zowe/cli
+        zowe config set "profiles.zosmf.properties.port" "10443" --global-config
+    - name: Debug Zowe Execution
+      run: zowe --version
     - name: Run COBOL Check
       env:
         ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
         ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+        ZOWE_HOST: ${{ secrets.ZOWE_HOST}}
       run: |
         chmod +x .github/scripts/zowe_operations.sh
         bash .github/scripts/zowe_operations.sh
