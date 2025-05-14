@@ -18,7 +18,7 @@ jobs:
     - name: Install Zowe CLI
       run: |
         npm install -g @zowe/cli
-        zowe config set-default-profile base-profile --location ./zowe.config
+        zowe config set "profiles.zosmf.properties.port" "10443" --global-config
     - name: Debug Zowe Execution
       run: zowe --version
     - name: Run COBOL Check
