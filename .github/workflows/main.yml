@@ -100,7 +100,7 @@ jobs:
     - name: Run Zowe Check
       run: |
         zowe --version
-        zowe zos-files list data-set "z68239.course.cbl"
+        zowe zos-files list data-set "z68239.course.cbl" --host $ZOWE_HOST
     # - name: Run COBOL Check
     #   run: |
     #     chmod +x .github/scripts/zowe_operations.sh
