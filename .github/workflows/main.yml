@@ -101,8 +101,11 @@ jobs:
         ZOWE_OPT_PORT: 10443
         ZOWE_OPT_USER: ${{ secrets.ZOWE_USERNAME }}
         ZOWE_OPT_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-        HOST1: ${{ secrets.ZOWE_HOST }}
+        HOST: ${{ secrets.ZOWE_HOST }}
+        USER: ${{ secrets.ZOWE_USERNAME }}
+        PSW: ${{ secrets.ZOWE_PASSWORD }}
+        PORT: ${{ secrets.ZOWE_PORT }}
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        .github/scripts/zowe_operations.sh ${{ secrets.ZOWE_HOST }} ${{ secrets.ZOWE_USERNAME }} ${{ secrets.ZOWE_PASSWORD }} ${{ secrets.ZOWE_PORT }}
+        .github/scripts/zowe_operations.sh    
 ...

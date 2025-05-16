@@ -1,13 +1,9 @@
 #!/bin/bash
 # zowe_operations.sh
 # Convert username to lowercase
-HOST="$1"
-USER="$2"
-PSW="$3"
-PORT="$4"
 LOWERCASE_USERNAME=$(echo "$USER" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
-if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" --host $HOST1 --password $PSW --user $USER &>/dev/null; then
+if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" --host $HOST --password $PSW --user $USER &>/dev/null; then
 echo "Directory does not exist. Creating it..."
 zowe zos-files create uss-directory /z/$LOWERCASE_USERNAME/cobolcheck --host $HOST --password $PSW --user $USER 
 else
