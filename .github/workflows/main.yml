@@ -99,9 +99,9 @@ jobs:
         export Z_USER=${{ secrets.ZOWE_USERNAME}}
         export Z_PSW=${{ secrets.ZOWE_PASSWORD }}
         export Z_PORT=${{ secrets.ZOWE_PORT }}
-        zowe zos-files list data-set "$Z_USER }}.course.cbl" --host $Z_HOST --user $Z_USER --password $Z_PSW
+        zowe zos-files list data-set "$Z_USER.course.cbl" --host $Z_HOST --user $Z_USER --password $Z_PSW
     - name: Run COBOL Check
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        bash .github/scripts/zowe_operations.sh $Z_HOST $Z_USER $Z_PSW
+        bash .github/scripts/zowe_operations.sh "$Z_HOST"
 ...
