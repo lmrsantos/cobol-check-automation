@@ -2,7 +2,13 @@
 # zowe_operations.sh
 # Convert username to lowercase
 HOST="$1"
+USER="$2"
+PSW="$3"
+PORT="$4"
 echo "host: $HOST"
+echo "user: $USER"
+echo "psw: $PSW"
+echo "port: $PORT"
 
 # LOWERCASE_USERNAME=$(echo "$Z_USER" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
