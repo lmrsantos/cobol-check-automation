@@ -93,14 +93,10 @@ jobs:
     #     }  
     #     EOF
     - name: Run Zowe Check
+      env:
+        ZOWE_OPT_REJECT_UNAUTHORIZED: false 
       run: |
         zowe --version
-        export Z_HOST=${{ secrets.ZOWE_HOST }}
-        export Z_USER=${{ secrets.ZOWE_USERNAME }}
-        export Z_PSW=${{ secrets.ZOWE_PASSWORD }}
-        export Z_PORT=${{ secrets.ZOWE_PORT }}
-        ZOWE_OPT_REJECT_UNAUTHORIZED: false 
-        zowe zos-files list data-set "$Z_USER.course.cbl" --host $Z_HOST --user $Z_USER --password $Z_PSW
     - name: Run COBOL Check
       run: |
         chmod +x .github/scripts/zowe_operations.sh
