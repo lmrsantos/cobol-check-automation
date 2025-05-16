@@ -3,7 +3,7 @@
 # Convert username to lowercase
 # LOWERCASE_USERNAME=$(echo "$Z_USER" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
-echo "host:" ${ZOWE_HOST} 
+echo "host:" $ZOWE_HOST
 # if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"  --host ${Z_HOST} --password $Z_PSW --user $Z_USER &>/dev/null; then
 # echo "Directory does not exist. Creating it..."
 # zowe zos-files create uss-directory /z/$LOWERCASE_USERNAME/cobolcheck --host $Z_HOST
