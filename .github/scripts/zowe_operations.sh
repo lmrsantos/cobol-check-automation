@@ -1,7 +1,7 @@
 #!/bin/bash
 # zowe_operations.sh
 # Convert username to lowercase
-HOST=$1
+HOST="$1"
 echo "host: $HOST"
 
 # LOWERCASE_USERNAME=$(echo "$Z_USER" | tr '[:upper:]' '[:lower:]')
