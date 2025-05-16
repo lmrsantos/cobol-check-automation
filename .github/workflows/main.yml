@@ -103,5 +103,5 @@ jobs:
     - name: Run COBOL Check
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        bash .github/scripts/zowe_operations.sh "$Z_HOST"
+        bash .github/scripts/zowe_operations.sh $Z_HOST
 ...

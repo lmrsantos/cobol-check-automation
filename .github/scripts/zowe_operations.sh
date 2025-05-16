@@ -1,8 +1,8 @@
 #!/bin/bash
 # zowe_operations.sh
 # Convert username to lowercase
-Z_HOST="$1"
-echo "host:" ${Z_HOST}
+HOST=$1
+echo "host: $HOST"
 
 # LOWERCASE_USERNAME=$(echo "$Z_USER" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
