@@ -15,83 +15,83 @@ jobs:
         java-version: '11'
     - name: Install Zowe CLI
       run: npm install -g @zowe/cli
-    - name: Create ZOWE Config
-      run: |
-        cat <<EOF > zowe.config.json
-        {
-          "profiles": {
-              "zosmf": {
-                  "type": "zosmf",
-                  "properties": {
-                      "port": 10443
-                  },
-                  "secure": [
-                      "user",
-                      "password"
-                  ]
-              },
-              "tso": {
-                  "type": "tso",
-                  "properties": {
-                      "account": "FB3",
-                      "codePage": "1047",
-                      "logonProcedure": "IZUFPROC"
-                  },
-                  "secure": []
-              },
-              "ssh": {
-                  "type": "ssh",
-                  "properties": {
-                      "port": 22
-                  },
-                  "secure": [
-                      "user",
-                      "password"
-                  ]
-              },
-              "global_base": {
-                  "type": "base",
-                  "properties": {
-                      "host": "",
-                      "rejectUnauthorized": false
-                  },
-                  "secure": [
-                      "user",
-                      "password"
-                  ]
-              },
-              "zosmfZXPlore": {
-                  "type": "zosmf",
-                  "properties": {
-                      "port": 10443,
-                      "host": "204.90.115.200",
-                      "rejectUnauthorized": false
-                  },
-                  "secure": [
-                      "user",
-                      "password"
-                  ]
-              },
-              "tsoZXPlore": {
-                  "type": "tso",
-                  "properties": {
-                      "account": "FB3",
-                      "codePage": "1047",
-                      "logonProcedure": "IZUFPROC"
-                  },
-                  "secure": []
-              }
-          },
-          "defaults": {
-              "zosmf": "zosmf",
-              "tso": "tso",
-              "ssh": "ssh",
-              "rse": "rse",
-              "base": "global_base"
-          },
-          "autoStore": true
-        }  
-        EOF
+    # - name: Create ZOWE Config
+    #   run: |
+    #     cat <<EOF > zowe.config.json
+    #     {
+    #       "profiles": {
+    #           "zosmf": {
+    #               "type": "zosmf",
+    #               "properties": {
+    #                   "port": 10443
+    #               },
+    #               "secure": [
+    #                   "user",
+    #                   "password"
+    #               ]
+    #           },
+    #           "tso": {
+    #               "type": "tso",
+    #               "properties": {
+    #                   "account": "FB3",
+    #                   "codePage": "1047",
+    #                   "logonProcedure": "IZUFPROC"
+    #               },
+    #               "secure": []
+    #           },
+    #           "ssh": {
+    #               "type": "ssh",
+    #               "properties": {
+    #                   "port": 22
+    #               },
+    #               "secure": [
+    #                   "user",
+    #                   "password"
+    #               ]
+    #           },
+    #           "global_base": {
+    #               "type": "base",
+    #               "properties": {
+    #                   "host": "",
+    #                   "rejectUnauthorized": false
+    #               },
+    #               "secure": [
+    #                   "user",
+    #                   "password"
+    #               ]
+    #           },
+    #           "zosmfZXPlore": {
+    #               "type": "zosmf",
+    #               "properties": {
+    #                   "port": 10443,
+    #                   "host": "204.90.115.200",
+    #                   "rejectUnauthorized": false
+    #               },
+    #               "secure": [
+    #                   "user",
+    #                   "password"
+    #               ]
+    #           },
+    #           "tsoZXPlore": {
+    #               "type": "tso",
+    #               "properties": {
+    #                   "account": "FB3",
+    #                   "codePage": "1047",
+    #                   "logonProcedure": "IZUFPROC"
+    #               },
+    #               "secure": []
+    #           }
+    #       },
+    #       "defaults": {
+    #           "zosmf": "zosmf",
+    #           "tso": "tso",
+    #           "ssh": "ssh",
+    #           "rse": "rse",
+    #           "base": "global_base"
+    #       },
+    #       "autoStore": true
+    #     }  
+    #     EOF
     - name: Run Zowe Check
       run: |
         zowe --version
@@ -99,9 +99,10 @@ jobs:
         export Z_USER=${{ secrets.ZOWE_USERNAME }}
         export Z_PSW=${{ secrets.ZOWE_PASSWORD }}
         export Z_PORT=${{ secrets.ZOWE_PORT }}
+        ZOWE_OPT_REJECT_UNAUTHORIZED: false 
         zowe zos-files list data-set "$Z_USER.course.cbl" --host $Z_HOST --user $Z_USER --password $Z_PSW
     - name: Run COBOL Check
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        bash .github/scripts/zowe_operations.sh ${{ secrets.ZOWE_HOST }} ${{ secrets.ZOWE_USERNAME }} ${{ secrets.ZOWE_PASSWORD }} ${{ secrets.ZOWE_PORT }}
+        .github/scripts/zowe_operations.sh ${{ secrets.ZOWE_HOST }} ${{ secrets.ZOWE_USERNAME }} ${{ secrets.ZOWE_PASSWORD }} ${{ secrets.ZOWE_PORT }}
 ...
