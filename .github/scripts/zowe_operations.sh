@@ -21,4 +21,4 @@ fi
 zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --host $HOST --password $PSW --user $USER --recursive --binary-files "cobol-check-0.2.9.jar"
 # Verify upload
 echo "Verifying upload..."
-zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"
+zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" --host $HOST --password $PSW --user $USER 
