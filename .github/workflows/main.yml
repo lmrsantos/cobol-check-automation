@@ -14,7 +14,9 @@ jobs:
         distribution: 'zulu'
         java-version: '11'
     - name: Install Zowe CLI
-      run: npm install -g @zowe/cli
+      run: |
+        npm install -g @zowe/cli
+        zowe --version
     # - name: Create ZOWE Config
     #   run: |
     #     cat <<EOF > zowe.config.json
@@ -92,16 +94,14 @@ jobs:
     #       "autoStore": true
     #     }  
     #     EOF
-    - name: Run Zowe Check
+    - name: Run COBOL Check
       env:
         ZOWE_OPT_REJECT_UNAUTHORIZED: false
         ZOWE_OPT_HOST: 204.90.115.200
         ZOWE_OPT_PORT: 10443
         ZOWE_OPT_USER: ${{ secrets.ZOWE_USERNAME }}
         ZOWE_OPT_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-      run: |
-        zowe --version
-    - name: Run COBOL Check
+        HOST1: ${{ secrets.ZOWE_HOST }}
       run: |
         chmod +x .github/scripts/zowe_operations.sh
         .github/scripts/zowe_operations.sh ${{ secrets.ZOWE_HOST }} ${{ secrets.ZOWE_USERNAME }} ${{ secrets.ZOWE_PASSWORD }} ${{ secrets.ZOWE_PORT }}
