@@ -103,6 +103,6 @@ jobs:
     - name: Run COBOL Check
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        echo "Host: $Z_HOST"
-        bash .github/scripts/zowe_operations.sh $Z_HOST
+        echo "Host: ${{ secrets.ZOWE_HOST }}"
+        bash .github/scripts/zowe_operations.sh ${{ secrets.ZOWE_HOST }}
 ...
