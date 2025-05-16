@@ -101,8 +101,7 @@ jobs:
       run: |
         zowe --version
         export ZOWE_HOST=${{ secrets.ZOWE_HOST }}
-        zowe zos-files list data-set "${{ secrets.ZOWE_USERNAME}}.course.cbl" --host $ZOWE_HOST --user ${{ secrets.ZOWE_USERNAME}} 
-            --password ${{ secrets.ZOWE_PASSWORD }}
+        zowe zos-files list data-set "${{ secrets.ZOWE_USERNAME}}.course.cbl" --host ${{ secrets.ZOWE_HOST }} --user ${{ secrets.ZOWE_USERNAME}} --password ${{ secrets.ZOWE_PASSWORD }}
     # - name: Run COBOL Check
     #   run: |
     #     chmod +x .github/scripts/zowe_operations.sh
