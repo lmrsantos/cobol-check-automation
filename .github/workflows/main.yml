@@ -1,3 +1,4 @@
+---
 name: COBOL Check Automation
 on:
   push:
@@ -10,7 +11,7 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v2
       with:
-        distribution: 'oracle'
+        distribution: 'zulu'
         java-version: '11'
     - name: Run COBOL Check
       env:
@@ -20,3 +21,4 @@ jobs:
       run: |
         chmod +x .github/scripts/zowe_operations.sh
         bash .github/scripts/zowe_operations.sh
+...
