@@ -17,7 +17,7 @@ jobs:
       run: |
         npm install -g @zowe/cli
         zowe --version
-    - name: Run COBOL Check
+    - name: Run COBOL Check on Mainframe
       env:
         ZOWE_OPT_REJECT_UNAUTHORIZED: false
         ZOWE_OPT_HOST: 204.90.115.200
@@ -30,5 +30,7 @@ jobs:
         PORT: ${{ secrets.ZOWE_PORT }}
       run: |
         chmod +x .github/scripts/zowe_operations.sh
-        .github/scripts/zowe_operations.sh    
+        .github/scripts/zowe_operations.sh
+        chmod +x .github/scripts/mainframe_operations.sh
+        .github/scripts/mainframe_operations.sh
 ...
