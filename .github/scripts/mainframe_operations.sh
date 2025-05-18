@@ -49,7 +49,7 @@ run_cobolcheck() {
         echo "${program}.JCL not found"
     fi
 }
-echo "NUMBERS ---> &{NUMBERS}"
+echo "NUMBERS ---------------------------> &NUMBERS"
 # Run for each program
 for program in NUMBERS EMPPAY DEPTPAY; do
     run_cobolcheck $program
