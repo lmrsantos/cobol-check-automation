@@ -39,7 +39,6 @@ run_cobolcheck() {
         echo "CC##99.CBL not found for $program"
     fi
     # Copy the JCL file if it exists
-    echo "---------------------------------------->$(pwd)"
     if [ -f "${program}.JCL" ]; then
         if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
             echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
