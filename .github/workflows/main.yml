@@ -20,10 +20,6 @@ jobs:
     - name: Run COBOL Check on Mainframe
       env:
         ZOWE_OPT_REJECT_UNAUTHORIZED: false
-    #     ZOWE_OPT_HOST: 204.90.115.200
-    #     ZOWE_OPT_PORT: 10443
-    #     ZOWE_OPT_USER: ${{ secrets.ZOWE_USERNAME }}
-    #     ZOWE_OPT_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         HOST: ${{ secrets.ZOWE_HOST }}
         USER: ${{ secrets.ZOWE_USERNAME }}
         PSW: ${{ secrets.ZOWE_PASSWORD }}
