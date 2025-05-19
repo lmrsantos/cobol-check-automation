@@ -7,7 +7,7 @@ export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 # Check Java availability
 java -version
 # Set ZOWE_USERNAME
-ZOWE_USERNAME=${{ ZOWE_USERNAME }} # Replace with the actual username
+ZOWE_USERNAME=$USER # Replace with the actual username
 # Change to the cobolcheck directory
 cd cobol-check
 echo "Changed to $(pwd)"
@@ -49,7 +49,6 @@ run_cobolcheck() {
         echo "${program}.JCL not found"
     fi
 }
-echo "NUMBERS ---------------------------> &NUMBERS"
 # Run for each program
 for program in NUMBERS EMPPAY DEPTPAY; do
     run_cobolcheck $program
