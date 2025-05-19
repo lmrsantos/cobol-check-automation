@@ -35,6 +35,5 @@ jobs:
       #   .github/scripts/mainframe_operations.sh
       run: |
         chmod +x .github/scripts/mainframe_operations.sh
-        sshpass -p "$PSW" ssh -o StrictHostKeyChecking=no "$USER"@"$HOST"
-        .github/scripts/mainframe_operations.sh
+        sshpass -p "$PSW" ssh -o StrictHostKeyChecking=no "$USER"@"$HOST" 'sh -s' < .github/scripts/mainframe_operations.sh
 ...
