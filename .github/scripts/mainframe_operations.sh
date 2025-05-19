@@ -43,6 +43,9 @@ run_cobolcheck() {
     if [ -f "${program}.JCL" ]; then
         if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
             echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
+            # Submit job to run COBOL Check tests on the program!
+            submit ${program}.JCL
+            echo "Submitted job ${program}.JCL"
         else
             echo "Failed to copy ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
         fi
