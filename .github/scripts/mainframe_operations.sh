@@ -9,7 +9,6 @@ java -version
 # Set ZOWE_USERNAME
 ZOWE_USERNAME=$USER # Replace with the actual username
 # Change to the cobolcheck directory
-echo "----->$(pwd)"
 cd cobolcheck
 echo "Changed to $(pwd)"
 ls -al
@@ -40,6 +39,7 @@ run_cobolcheck() {
         echo "CC##99.CBL not found for $program"
     fi
     # Copy the JCL file if it exists
+    echo "---------------------------------------->$(pwd)"
     if [ -f "${program}.JCL" ]; then
         if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
             echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
