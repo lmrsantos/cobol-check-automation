@@ -28,5 +28,5 @@ jobs:
         chmod +x .github/scripts/zowe_operations.sh
         .github/scripts/zowe_operations.sh
         chmod +x .github/scripts/mainframe_operations.sh
-        .github/scripts/mainframe_operations.sh
+        sshpass -p "$PSW" ssh -o StrictHostKeyChecking=no "$USER"@"$HOST" 'sh -s' < .github/scripts/mainframe_operations.sh
 ...
