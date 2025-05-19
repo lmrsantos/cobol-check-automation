@@ -14,3 +14,5 @@ zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolch
 # Verify upload
 echo "Verifying upload..."
 zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" --host $HOST --password $PSW --user $USER --port $PORT
+echo "LEAVING ZOWE_OPERATIONS IN DIR ************** $(pwd -P)"
+

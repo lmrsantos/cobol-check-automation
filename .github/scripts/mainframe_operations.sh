@@ -9,7 +9,7 @@ java -version
 # Set ZOWE_USERNAME
 ZOWE_USERNAME=$USER # Replace with the actual username
 # Change to the cobolcheck directory
-echo "START MAINFAME_OPERATIONS IN DIR ************** $(pwd)"
+echo "START MAINFAME_OPERATIONS IN DIR ************** $(pwd -P)"
 cd cobolcheck
 echo "Changed to $(pwd)"
 ls -al
