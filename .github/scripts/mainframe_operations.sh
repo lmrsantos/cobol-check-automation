@@ -1,9 +1,9 @@
 #!/bin/bash
 # mainframe_operations.sh
 # Set up environment
-export PATH=$PATH:/usr/lpp/java/J8.0_64/bin
-export JAVA_HOME=/usr/lpp/java/J8.0_64
-export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
+# export PATH=$PATH:/usr/lpp/java/J8.0_64/bin
+# export JAVA_HOME=/usr/lpp/java/J8.0_64
+# export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 # Check Java availability
 java -version
 # Set ZOWE_USERNAME
@@ -42,7 +42,7 @@ run_cobolcheck() {
     if [ -f "${program}.JCL" ]; then
         if cp ${program}.JCL "//'${ZOWE_USERNAME}.JCL($program)'"; then
             echo "Copied ${program}.JCL to ${ZOWE_USERNAME}.JCL($program)"
-            # Submit job to run COBOL Check tests on the program!
+            # Submit jobs <<<<<<< This is not in the original script
             submit ${program}.JCL
             echo "Submitted job ${program}.JCL"
         else

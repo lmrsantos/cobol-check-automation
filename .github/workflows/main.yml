@@ -28,5 +28,6 @@ jobs:
         chmod +x .github/scripts/zowe_operations.sh
         .github/scripts/zowe_operations.sh
         chmod +x .github/scripts/mainframe_operations.sh
+        # command below was changed from the original yaml file
         sshpass -p "$PSW" ssh -o StrictHostKeyChecking=no "$USER"@"$HOST" 'sh -s' < .github/scripts/mainframe_operations.sh
 ...
